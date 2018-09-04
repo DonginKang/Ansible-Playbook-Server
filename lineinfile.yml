@@ -1,9 +1,57 @@
-- name: "inline test"
+- name: "lineinfile TEST"
   hosts: 192.168.0.56
   remote_user: vagrant
 
   tasks:
-  - lineinfile:
+  - name: Create file and line
+    lineinfile:
       path: /home/vagrant/inline.txt
-      regexp: '^hi'
-      line: 'hi=enforcing'
+      line: "{{item}}"
+      create: yes
+    with_items:
+      - 'Listen'
+      - 'ip'
+      - 'port'
+     # - 'Listen'  you can't duplicated value.
+
+  - name: Basic
+    lineinfile:
+      path: /home/vagrant/inline.txt
+      regexp: '^ip'
+      line: 'ip=192.168.0.2'
+
+  - name: Insert After
+    lineinfile:
+      path: /home/vagrant/inline.txt
+      regexp: '^port'
+      insertafter: '^ip'
+      line: 'port=8080'
+
+  - name: Insert Before
+    lineinfile:
+      path: /home/vagrant/inline.txt
+      regexp: '^Listen'
+      insertbefore: '^ip'
+      line: 'Listen 443'
+
+  - name: Delete
+    lineinfile:
+      path: /home/vagrant/inline.txt
+      state: absent
+      regexp: '^Listen'
+
+  - name: Backup
+    lineinfile:
+      path: /home/vagrant/inline.txt
+      line: "{{item}}"
+      backup: yes
+    with_items:   # two files will be created for backup file
+      - 'back up 1'
+      - 'back up 2'
+
+  - name: Backrefs  # you can use \t \s
+    lineinfile:
+      path: /home/vagrant/inline.txt
+      line: '\t\tDone\t\t' # only last line is changed
+      regexp: '^back'
+      backrefs: yes
