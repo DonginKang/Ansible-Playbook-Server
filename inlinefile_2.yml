@@ -9,4 +9,4 @@
       line: "{{ item.line }}"
     with_items:
       - { regexp: '^hi=', line: 'hi = 2097152' }
-      - { regexp: '^iface', line: 'iface = 134217728' }
+      - { regexp: '^iface', line: '%\tiface\t134217728' }
