@@ -55,3 +55,13 @@
       line: '\t\tDone\t\t' # only last line is changed
       regexp: '^back'
       backrefs: yes
+
+
+  - name: Multiple Lines Change
+    lineinfile:
+      path: /home/vagrant/inline.txt
+      regexp: "{{ item.regexp }}"
+      line: "{{ item.line }}"
+    with_items:
+      - { regexp: '^ip', line: 'ip=192.168.0.10' }
+      - { regexp: '^port', line: 'port=443' }
