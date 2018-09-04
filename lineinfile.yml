@@ -49,10 +49,10 @@
       - 'back up 1'
       - 'back up 2'
 
-  - name: Backrefs  # you can use \t \s
+  - name: Backrefs  # you can use \t \s \n
     lineinfile:
       path: /home/vagrant/inline.txt
-      line: '\t\tDone\t\t' # only last line is changed
+      line: '\t\tDone\t\t\nDone' # only last line is changed
       regexp: '^back'
       backrefs: yes
 
