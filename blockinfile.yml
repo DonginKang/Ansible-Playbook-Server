@@ -1,0 +1,11 @@
+- name: "inline test"
+  hosts: 192.168.0.56
+  remote_user: vagrant
+
+  tasks:
+  - blockinfile:
+      dest: /home/vagrant/inline.txt
+      content: |
+        "iface eth0 inet static
+        address 192.168.0.1
+        netmask 255.255.255.0"
