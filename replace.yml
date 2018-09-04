@@ -1,0 +1,11 @@
+- name: "replace test"
+  hosts: 192.168.0.56
+  remote_user: vagrant
+
+  tasks:
+  - replace:
+      path: /home/vagrant/inline.txt
+      regexp: '^hi*'
+      after: "first"
+      #before: "seoncd"  # need test about using both after and before
+      replace: 'hello'
