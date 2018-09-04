@@ -1,0 +1,9 @@
+- name: "inline test"
+  hosts: 192.168.0.56
+  remote_user: vagrant
+
+  tasks:
+  - lineinfile:
+      path: /home/vagrant/inline.txt
+      regexp: '^hi'
+      line: 'hi=enforcing'
