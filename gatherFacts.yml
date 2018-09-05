@@ -1,0 +1,17 @@
+- name: "Centos Gather Facts TEST"
+  hosts: 192.168.0.56
+  remote_user: vagrant
+  gather_facts: yes
+
+  tasks:
+  - name: ansible_interfaces
+    debug: var=ansible_interfaces
+
+  - name: ansible_eth0.features.rx_all
+    debug: var=ansible_eth0["features"]["rx_all"]
+
+  - name: ansible_eth0.ipv4
+    debug: var=ansible_eth0["ipv4"]
+
+  - name: ansible_user_gecos
+    debug: var=ansible_user_gecos
