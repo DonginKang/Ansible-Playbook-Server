@@ -1,9 +1,9 @@
 - name: "Centos Gather Facts TEST"
   hosts: 192.168.0.54
   #hosts: "{{ansible_inventory}}"
-  remote_user: "{{remote_user}}"
+  remote_user: vagrant
   #become: yes
-  gather_facts: yes
+  #gather_facts: yes
 
   tasks:
   - name: ansible_interfaces
