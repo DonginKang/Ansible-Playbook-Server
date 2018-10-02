@@ -2,7 +2,6 @@
   hosts: 192.168.0.54
   #hosts: "{{ansible_inventory}}"
   remote_user: "{{remote_user}}"
-  remote_password: "{{remote_password}}"
   gather_facts: yes
 
   tasks:
