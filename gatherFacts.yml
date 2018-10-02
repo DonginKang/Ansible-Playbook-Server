@@ -1,7 +1,8 @@
 - name: "Centos Gather Facts TEST"
-  hosts: 192.168.0.56
+  hosts: 192.168.0.54
   #hosts: "{{ansible_inventory}}"
-  #remote_user: "{{remote_user}}"
+  remote_user: "{{remote_user}}"
+  ansible_password: "{{ansible_password}}"
   gather_facts: yes
 
   tasks:
