@@ -1,0 +1,8 @@
+- name: "blockinfile Test"
+  hosts: 192.168.0.56
+  remote_user: vagrant
+  
+- tasks:
+- name: return motd to registered var
+  command: cat /etc/motd
+  register: mymotd
