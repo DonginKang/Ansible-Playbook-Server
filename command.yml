@@ -1,5 +1,5 @@
 - name: "command to remote node"
-  hosts: "{{ansible_host}}"
+  hosts: "{{ansible_inventory}}"
   remote_user: vagrant
   gather_facts: false
 
