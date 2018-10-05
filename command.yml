@@ -1,5 +1,5 @@
 - name: "command to remote node"
-  hosts: "{{remote_ip}}"
+  hosts: all
   remote_user: vagrant
   gather_facts: false
 
