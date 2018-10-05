@@ -1,13 +1,17 @@
 - name: "command to remote node"
-  hosts: 192.168.0.56
+  hosts: 192.168.0.57
   remote_user: vagrant
-  gather_facts: yes
+  gather_facts: false
 
   tasks:
-  - name: execute file
-    command: python /home/vagrant/test.py
-    register: result
-   
-  - debug: var=result
+   - name: execute file
+     command: python /home/vagrant/test.py
+     register: result
 
-    
+   - debug: var=result
+
+# inventory file
+# 192.168.0.57 ansible_ssh_pass=vagrant
+
+# ansible.cfg
+# host_key_checking = False
