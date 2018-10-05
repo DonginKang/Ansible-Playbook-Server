@@ -1,6 +1,6 @@
 - name: "command to remote node"
   hosts: all
-  remote_user: "{{remote_user}}"
+  remote_user: "{{user}}"
   gather_facts: false
 
   tasks:
