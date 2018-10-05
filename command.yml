@@ -1,11 +1,11 @@
 - name: "command to remote node"
   hosts: all
-  remote_user: vagrant
+  remote_user: "{{remote_user}}"
   gather_facts: false
 
   tasks:
    - name: execute file
-     command: python /home/vagrant/test.py
+     command: "{{command}}"
      register: result
 
    - debug: var=result.stdout
