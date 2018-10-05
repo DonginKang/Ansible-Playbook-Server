@@ -8,7 +8,9 @@
      command: python /home/vagrant/test.py
      register: result
 
-   - debug: var=result
+   - debug: var=result.stdout
+   
+   - debug: var=result.stdout_lines
 
 # inventory file
 # 192.168.0.57 ansible_ssh_pass=vagrant
