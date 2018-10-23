@@ -1,5 +1,5 @@
 - name: "Centos Gather Facts TEST"
-  hosts: 192.168.0.54
+  hosts: 192.168.0.57
   #hosts: "{{ansible_inventory}}"
   remote_user: vagrant
   #become: yes
